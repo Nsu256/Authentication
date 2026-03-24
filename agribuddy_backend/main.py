@@ -12,3 +12,5 @@ def login():
     role = data.get('role')
     email = data.get('email')
     password = data.get('password')
+
+    user = User.query.filter_by(email=email).first()
