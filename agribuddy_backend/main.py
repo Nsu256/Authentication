@@ -34,5 +34,10 @@ with app.app_context():
     seed_default_users()
 
 
+@app.route("/", methods=["GET"])
+def home():
+    return {"message": "Agribuddy Authentication API is running"}, 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
