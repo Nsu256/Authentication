@@ -39,5 +39,62 @@ def home():
     return {"message": "Agribuddy Authentication API is running"}, 200
 
 
+@app.route("/api/docs", methods=["GET"])
+def api_docs():
+    return {
+        "message": "Available API endpoints",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "/",
+                "description": "API health endpoint",
+                "auth": "No",
+            },
+            {
+                "method": "GET",
+                "path": "/api/docs",
+                "description": "List all available endpoints",
+                "auth": "No",
+            },
+            {
+                "method": "POST",
+                "path": "/api/login",
+                "description": "Login for administrator or farmer",
+                "auth": "No",
+            },
+            {
+                "method": "POST",
+                "path": "/api/register",
+                "description": "Register a farmer account",
+                "auth": "No",
+            },
+            {
+                "method": "GET",
+                "path": "/api/me",
+                "description": "Get current token payload",
+                "auth": "Bearer token",
+            },
+            {
+                "method": "GET",
+                "path": "/api/admin/users",
+                "description": "List all users (admin only)",
+                "auth": "Bearer token (administrator)",
+            },
+            {
+                "method": "POST",
+                "path": "/api/admin/users",
+                "description": "Create farmer user (admin only)",
+                "auth": "Bearer token (administrator)",
+            },
+            {
+                "method": "GET",
+                "path": "/api/farmer/profile",
+                "description": "Get farmer profile (farmer only)",
+                "auth": "Bearer token (farmer)",
+            },
+        ],
+    }, 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
