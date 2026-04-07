@@ -15,7 +15,6 @@ app.register_blueprint(auth_bp)
 
 def seed_default_users() -> None:
     default_users = [
-        {"email": "admin@agribuddy.com", "password": "Admin@123", "role": "administrator"},
         {"email": "farmer@agribuddy.com", "password": "Farmer@123", "role": "farmer"},
     ]
 

@@ -163,8 +163,8 @@ def create_user(admin_payload: dict):
     if not email or not password or not role:
         return jsonify({"error": "email, password, and role are required"}), 400
 
-    if role not in User.ALLOWED_ROLES:
-        return jsonify({"error": "role must be either 'administrator' or 'farmer'"}), 400
+    if role != "farmer":
+        return jsonify({"error": "Only farmer accounts can be created via this endpoint"}), 400
 
     existing_user = User.query.filter_by(email=email).first()
     if existing_user:

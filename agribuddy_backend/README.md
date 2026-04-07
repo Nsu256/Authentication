@@ -15,8 +15,9 @@
    ```
 
 The app auto-creates the SQLite database and seeds:
-- administrator: `admin@agribuddy.com` / `Admin@123`
 - farmer: `farmer@agribuddy.com` / `Farmer@123`
+
+Administrator accounts are not created by API or seed. Add administrators manually in the `users` table.
 
 ## Authentication API
 
@@ -93,7 +94,7 @@ Request body:
 }
 ```
 
-`role` must be `administrator` or `farmer`.
+`role` must be `farmer`.
 
 ### 6) Farmer: Profile
 
