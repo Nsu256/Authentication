@@ -17,7 +17,18 @@
 The app auto-creates the SQLite database and seeds:
 - farmer: `farmer@agribuddy.com` / `Farmer@123`
 
-Administrator accounts are not created by API or seed. Add administrators manually in the `users` table.
+Administrator seeding is optional and disabled by default.
+
+To seed an administrator at startup, set environment variables before running the app:
+
+```bash
+export ENABLE_ADMIN_SEED=true
+export DEFAULT_ADMIN_EMAIL=admin@agribuddy.com
+export DEFAULT_ADMIN_PASSWORD=Admin@123
+python main.py
+```
+
+If `ENABLE_ADMIN_SEED` is not enabled, administrators are not auto-created and should be added manually in the `users` table.
 
 ## Authentication API
 
